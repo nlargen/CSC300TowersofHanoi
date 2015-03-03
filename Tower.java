@@ -2,7 +2,8 @@ package csc300TowersofHanoi;
 
 public class Tower {
 
-	private Disc top; 
+	private Disc top;
+	 
 
 	public Tower()
 	{
@@ -17,7 +18,10 @@ public class Tower {
 	public Disc removeDisc()
 	{
 		Disc nodeToReturn = top; 
-		top = top.getNextDisc(); 
+		if(this.top != null)
+		{
+		top = top.getNextDisc();
+		}
 		return nodeToReturn; 
 		
 	}
