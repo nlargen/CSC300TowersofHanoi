@@ -16,7 +16,10 @@ public class Tower {
 	
 	public Disc removeDisc()
 	{
-		return this.top; 
+		Disc nodeToReturn = top; 
+		top = top.getNextDisc(); 
+		return nodeToReturn; 
+		
 	}
 	boolean addDisc(Disc d)
 	{
