@@ -5,29 +5,20 @@ import java.util.Scanner;
 public class Tower {
 
 	private Disc top; 
-	private Disc numDiscs; 
+	private int numDiscs; 
 
 
 	public Tower()
 	{
 		this.top = null; 
-		this.numDiscs = null; 
+		this.numDiscs = 0; 
+	}
+	public int getNumDisc()
+	{
+		return numDiscs; 
 	}
 	
-	public boolean addDisc(Disc d)
-	{
-		if(this.top == null)
-		{
-			top = d; 
-			this.numDiscs++; 
-			return true; 
-		}
-		else if(d.getSize() < this.peek().getSize())
-		{
-			d.setNextDisc(top); 
-			
-		}
-	}
+	
 	//peek 
 	public Disc peek()
 	{
@@ -58,13 +49,15 @@ public class Tower {
 	{
 		if(this.top == null)
 		{
-			top = d; 
+			top = d;
+			this.numDiscs++; 
 			return true; 
 		}
 		else if(d.getSize() < this.peek().getSize())
 		{
 			d.setNextDisc(top);
 			top = d; 
+			this.numDiscs++; 
 			return true; 
 		}
 		else

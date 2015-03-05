@@ -33,6 +33,13 @@ public class Game {
 				this.thetowers[source].addDisc(d2Move);
 				System.out.println("Illegal Move");
 			}
+			// check for winner
+			if(this.thetowers[this.thetowers.length-1].getNumDisc() == 3)
+			{
+				break; 
+			}
+			this.show();
+			System.out.println("Winner!!!!"); 
 		}
 
 	}
