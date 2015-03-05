@@ -5,7 +5,7 @@ public class Driver {
 	public static void main(String[] args) throws Exception
 	{
 		
-		Gameplay thegame = new Gameplay();
+		Tower thegame = new Tower();
 		thegame.on(); 
 		
 	}
