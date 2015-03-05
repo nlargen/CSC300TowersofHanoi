@@ -2,12 +2,10 @@ package csc300TowersofHanoi;
 
 public class Driver {
 
-	public static void main(String args)
+	public static void main(String[] args) throws Exception
 	{
-		Tower t = new Tower(); 
-		t.addDisc(new Disc(1)); 
-		t.addDisc(new Disc(0));
-		t.addDisc(new Disc(5));
-		t.display();
+		Gameplay thegame = new Gameplay();
+		thegame.on(); 
+		
 	}
 }

@@ -4,10 +4,10 @@ public class Disc extends Object{
 
 	private int size; 
 	private Disc nextDisc; 
-	
+
 	public String toString()
 	{
-		return "" + this.size; 
+		return "" + this.size + "(" + super.toString() + ")"; 
 	}
 	public Disc(int size)
 	{
@@ -15,11 +15,8 @@ public class Disc extends Object{
 		this.nextDisc = null; 
 	}
 
-	public int getSize() {
-		return size;
-	}
-
-	public void setSize(int size) {
+	public void setSize(int size) 
+	{
 		this.size = size;
 	}
 
@@ -27,9 +24,13 @@ public class Disc extends Object{
 		return nextDisc;
 	}
 
-	public void setNextDisc(Disc nextDisc) {
+	public void setNextDisc(Disc nextDisc) 
+	{
 		this.nextDisc = nextDisc;
 	}
-	
-	
+	public int getSize() 
+	{
+		return size;
+	}
+
 }
