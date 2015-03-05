@@ -11,7 +11,16 @@ public class Tower {
 	{
 		this.top = null; 
 	}
+	static void show(Tower[] thetowers)
+	{
+		for(int i = 0; i< thetowers.length; i++)
+		{
+			System.out.println("Tower Index:" + i);
+			thetowers[i].display(); 
+			System.out.println(""); 
+		}
 
+	}
 
 	public void on() throws Exception 
 	{
@@ -37,7 +46,9 @@ public class Tower {
 			}
 			else if(val1.equalsIgnoreCase("show"))
 			{
-				for(int i = 0; i < thetowers.length; i++)
+
+				Tower.show(thetowers);
+				/*for(int i = 0; i < thetowers.length; i++)
 				{
 					if(thetowers[i].top == null)
 					{
@@ -55,8 +66,9 @@ public class Tower {
 						}
 					}
 					System.out.println("*****" + i + "***"); 
-				}
+				 */
 			}
+
 			else if(val1.equalsIgnoreCase("Move"))
 			{
 				System.out.println("Tower to move from? ==>"); 
@@ -131,6 +143,7 @@ public class Tower {
 
 	public void display()
 	{
+		System.out.println("****************");
 		if(this.top == null)
 		{
 			System.out.println("The Tower Has Fallen"); 
@@ -146,6 +159,7 @@ public class Tower {
 			}
 			while(curr != null);
 		}
+		System.out.println("***********"); 
 	}
 
 }
