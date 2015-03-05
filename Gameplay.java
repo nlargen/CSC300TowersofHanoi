@@ -3,26 +3,22 @@ import java.util.Scanner;
 
 public class Gameplay {
 	
-	private Tower thetower;
-	private Tower thesecondtower; 
-	private Tower thethirdtower; 
-	private Tower temptower; 
+	private Tower[] thetower;
+	private Tower[] temptower; 
+	
 		
 	
-	public Gameplay()
-	{
-		this.thesecondtower = new Tower(); 
-		this.thethirdtower = new Tower();
-		this.thetower = new Tower(); 
-		this.thetower.addDisc(1); 
-		this.thetower.addDisc(2); 
-		this.thetower.addDisc(3);
+	public void Gameplay()
+	{  
+		this.thetower = new Tower[3];
+		this.temptower = new Tower[3];
+	
 		
 	}
 	public void show()
 	{
 		// tower 1
-		System.out.println("****" + "****");
+		System.out.println("****"  +"****");
 		System.out.println("****"  + "****");
 		System.out.println("****" + "****");
 		
@@ -53,26 +49,22 @@ public class Gameplay {
 			String val2 = input.nextLine(); 
 			if(val1.equalsIgnoreCase("1")) 
 			{
-				int num1 = this.thetower.removeDisc().getSize();
-				System.out.print(num1);
-				this.temptower.addDisc(num1);
-				 
-				//this.temptower.addDisc(this.thetower.removeDisc());
+				this.thetower[0].addDisc(this.thetower[0].removeDisc());
 				//this.show();
 			}
 			else if (val1.equalsIgnoreCase("2"))
 			{
-				this.temptower.addDisc(this.thesecondtower.removeDisc()); 
+				this.temptower[1].addDisc(this.thetower[1].removeDisc()); 
 				//this.show();
 			}
 			else if(val1.equalsIgnoreCase("3"))
 			{
-				this.temptower.addDisc(this.thethirdtower.removeDisc()); 
+				this.temptower[2].addDisc(this.thetower[2].removeDisc()); 
 				//this.show();
 			}
 			if(val2.equalsIgnoreCase("1"))
 			{
-				this.thetower.addDisc(this.temptower.removeDisc());
+				this.thetower[0].addDisc(this.temptower[0].removeDisc());
 				//this.show();
 			}
 			else if(val2.equalsIgnoreCase("2"))

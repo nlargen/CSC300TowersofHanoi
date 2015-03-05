@@ -27,19 +27,7 @@ public class Tower {
 		
 	}
 	//push
-	public void addDisc(int a)
-	{
-		Disc n = new Disc(a); 
-		if(this.top == null)
-		{
-			this.top = n; 
-		}
-		else 
-		{
-			n.setNextDisc(this.top);
-			this.top = n; 
-		}
-	}
+	
 	boolean addDisc(Disc d)
 	{
 		if(this.top == null)
@@ -53,7 +41,10 @@ public class Tower {
 			top = d; 
 			return true; 
 		}
+		else
+		{
 		return false; 
+		}
 	}
 	
 
