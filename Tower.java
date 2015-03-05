@@ -5,103 +5,29 @@ import java.util.Scanner;
 public class Tower {
 
 	private Disc top; 
+	private Disc numDiscs; 
 
 
 	public Tower()
 	{
 		this.top = null; 
+		this.numDiscs = null; 
 	}
-	static void show(Tower[] thetowers)
+	
+	public boolean addDisc(Disc d)
 	{
-		for(int i = 0; i< thetowers.length; i++)
+		if(this.top == null)
 		{
-			System.out.println("Tower Index:" + i);
-			thetowers[i].display(); 
-			System.out.println(""); 
+			top = d; 
+			this.numDiscs++; 
+			return true; 
 		}
-
-	}
-
-	public void on() throws Exception 
-	{
-		Scanner input = new Scanner(System.in);
-		Tower[] thetowers = new Tower[3]; 
-		thetowers[0] = new Tower(); 
-		thetowers[1] = new Tower(); 
-		thetowers[2] = new Tower(); 
-		thetowers[0].addDisc(new Disc(3)); 
-		thetowers[0].addDisc(new Disc(2)); 
-		thetowers[0].addDisc(new Disc(1)); 
-		System.out.println("Would you like to play a game? =>");
-		String val = input.nextLine().trim();  
-		while(val.equalsIgnoreCase("Yes"))
+		else if(d.getSize() < this.peek().getSize())
 		{
-
-			System.out.print("Enter a command:=>");
-			String val1 = input.nextLine().trim();
-			if(val1.equalsIgnoreCase("quit"))
-			{
-				break; 
-
-			}
-			else if(val1.equalsIgnoreCase("show"))
-			{
-
-				Tower.show(thetowers);
-				/*for(int i = 0; i < thetowers.length; i++)
-				{
-					if(thetowers[i].top == null)
-					{
-						System.out.println("**********");
-						System.out.println("Saruman has left the building");
-					}
-					else 
-					{
-						System.out.println("********");
-						Disc curr = thetowers[i].top; 
-						while(curr !=null)
-						{
-							System.out.println(curr.getSize());
-							curr = curr.getNextDisc(); 
-						}
-					}
-					System.out.println("*****" + i + "***"); 
-				 */
-			}
-
-			else if(val1.equalsIgnoreCase("Move"))
-			{
-				System.out.println("Tower to move from? ==>"); 
-				String fromtower = input.nextLine().trim(); 
-				System.out.println("Tower to move to? =>"); 
-				String totower = input.nextLine().trim(); 
-				if(thetowers[Integer.parseInt(totower)].top == null )
-				{
-					int temp = thetowers[Integer.parseInt(fromtower)].removeDisc().getSize();
-					thetowers[Integer.parseInt(totower)].addDisc(new Disc(temp));
-					System.out.println("The Move Was legit I repeat the Move was legit"); 
-
-				}
-				else
-				{
-					if(thetowers[Integer.parseInt(totower)].top.getSize() > thetowers[Integer.parseInt(fromtower)].top.getSize())
-					{
-						int temp = thetowers[Integer.parseInt(fromtower)].removeDisc().getSize(); 
-						thetowers[Integer.parseInt(totower)].addDisc(new Disc(temp)); 
-						System.out.println("Another Legit Move!!!!");
-					}
-					else 
-					{
-						System.out.println("You fail at life"); 
-					}
-				}
-			}
-
+			d.setNextDisc(top); 
+			
 		}
-
 	}
-
-
 	//peek 
 	public Disc peek()
 	{
@@ -115,8 +41,15 @@ public class Tower {
 		if(this.top != null)
 		{
 			top = top.getNextDisc();
+			top.setNextDisc(null); 
+			this.numDiscs--; 
+		return nodeToReturn;
 		}
-		return nodeToReturn; 
+		else 
+		{
+			return null; 
+		}
+		 
 
 	}
 	//push
